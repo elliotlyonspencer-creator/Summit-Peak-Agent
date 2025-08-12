@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: summit-peak-agent
+    env: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: FROM_EMAIL
+        sync: false
+      - key: FROM_NAME
+        value: Elliot at Summit Peak Properties
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_PORT
+        value: 587
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: CALENDLY_LINK
+        value: https://calendly.com/elliot-spencer-summitpeakprop/30min
+      - key: AIRTABLE_API_TOKEN
+        sync: false
+      - key: AIRTABLE_BASE_ID
+        value: app10O5XVoooMIJYq
+      - key: AIRTABLE_TABLE_LEADS
+        value: Leads
+      - key: AIRTABLE_TABLE_TASKS
+        value: Tasks
+      - key: UNSUBSCRIBE_SECRET
+        sync: false
